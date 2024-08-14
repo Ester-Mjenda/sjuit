@@ -1,0 +1,406 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    text-decoration: none;
+  }
+  
+  body {
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    background-size: cover;
+    
+  }
+#header{
+    align-content: center;
+    background-color:#11224D;
+    color:#ebe7e7;
+     position: relative; 
+}
+.logo{
+    display: flex;
+    margin-left:6%;  
+    height:160px;
+}
+.logo-1 img{
+   width: 67%;
+   margin-left: 90px;
+   height: 160px;
+   
+}
+.logo-2{
+   width: 63%;
+}
+.logo-2 h1{
+   margin-left:50px;
+    font-size: 33px;
+    margin-top: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif ;
+}
+.logo-2 h2{
+   text-align: center;
+   font-size: 32px;
+   font-family: Georgia, 'Times New Roman', Times, serif ;
+}
+ .logo-2 h3{
+   font-size: 20px;
+    text-align: center;
+    line-height: 1.5;
+    font-family: Bradley Hand ITC ;
+   color: wheat;
+   } 
+   .logo-3 img{
+      height: 160px;
+      width: 100%; 
+   }
+.contact {
+    display:flex;
+    margin-left: 25px;
+}
+.Contact{
+   display: flex;
+   background-color: rgb(3, 23, 77);
+   padding: 12px;
+}
+.contact img{
+   height: 20px;
+   margin-right: 10px;
+   margin-left: 10px;
+}
+.contact p{
+   margin-top: 5px;
+   
+}
+.apply{
+   display: flex;
+   margin-left: 25%;
+}
+.apply img{
+   height: 20px;
+   margin-right: 10px;
+   margin-left: 10px;
+}
+.apply a{
+   margin-top: 5px;
+}
+#nav-links{
+    background:orchid;
+    line-height:60px;
+      padding:0 50px ;
+    display:inline-flexbox;
+    
+}
+#nav-links a{
+   padding: 7px 20px;
+   border-radius: 3px;
+}
+a{
+   color: #fff;
+}
+#nav-links a.active,#nav-links a:hover{
+   background-color:#11224D;
+   transition: .4s;
+   padding: 5px;
+}
+.slider{
+ overflow: hidden;
+}
+ .slider figure{
+   width:100%;
+   position: relative;
+   left:0;
+   animation:30s slider infinite;
+   margin :0;
+   display: flex;
+}
+.slider figure img{ 
+   float: left;
+   width: 50%;
+   
+}
+
+@keyframes slider{
+   0%{ 
+      left: 0%;
+   }
+   20%{ 
+      left: -100%;
+   }
+   40%{ 
+      left:-200%;
+   }
+   60%{ 
+      left: -300%;
+   }
+   80%{ 
+      left: -400%;
+   }
+   100%{ 
+      left: -500%;
+   }
+   120%{ 
+      left: -600%;
+   }
+   140%{ 
+      left: -700%;
+   }
+   160%{ 
+      left: -800%;
+   } 
+   180%{ 
+      left: -900%;
+   }
+   200%{ 
+      left: -1000%;
+   }
+}
+ .updates{
+    display: flex;
+ }
+ .updates img{
+   
+   height: 67px;
+   background-color: #12345b;
+   border-radius: 5px 0px 0px 5px;
+}
+.updates marquee{
+   padding: 26px;
+   background-color:violet;
+   
+}
+ .new{
+    line-height: 1.3;
+    padding: 20px;
+    background-color:#12345b;
+    font-size: 18px;
+    background-size: cover;
+    display:flex ;
+ }
+ .new-1{
+   margin-left: 20px;
+   margin-right: 20px;
+}
+ .new-1 img{
+    display: flex; 
+   height: 65px;
+}
+.new-1a{
+   display: flex;
+}
+.new-1b{
+   display: flex;
+}
+.new-2{
+   margin-left: 15px; 
+   margin-top: 15px;
+}
+.new-3{
+   margin-left: 60px;
+}
+.new-3 img{
+   height:65px ;
+   display: flex;
+}
+.new-3a{
+   display: flex;
+}
+.new-3b{
+   display: flex;
+}
+#New h2{
+    padding: 10px;
+    color:#2d3130 ;
+    font-size: 25px;
+    text-align: center;
+}
+ .about{
+    display: flex;
+    background-color: #eeabab;
+    width: 100%;
+ }
+ #About h2{
+   padding: 10px;
+   text-align: center;
+   color:#2d3130 ;
+   font-size: 25px bold;
+   margin-top: 15px;
+ }
+ .left{
+   padding: 40px 7px 40px 40px;
+   line-height: 1.5;
+   font-size:18px;
+    text-align:justify;
+    width: 49%;
+    margin-left: 10px;
+    margin-right: 7px;
+ }
+ .left h3{
+   font-size: 25px;  
+ }
+ .left-a{
+   display: flex;   
+ }
+ .left-b{
+   display: flex;   
+ }
+ .left-a img{
+     height: 15px;
+     margin-top: 5px;
+    
+ } 
+ .left-b img{
+   margin-top: 5px;
+   height: 10px;
+   margin-left: 25px;
+ }
+ .right{
+   overflow: hidden;
+   width: 50%;
+ }
+   .right figure{
+     width:100%;
+     position: relative;
+     left:0;
+     animation:40s slider infinite;
+     margin :0;
+     display: flex;
+  }
+  .right figure img{ 
+     float: left;
+     width: 100%;
+  }
+  @keyframes right{
+     0%{ 
+        left: 0%;
+     }
+     25%{ 
+        left: -100%;
+     }
+     40%{ 
+        left:-200%;
+     }
+     60%{ 
+        left: -300%;
+     }
+     80%{ 
+        left: -400%;
+     }
+     100%{ 
+        left: -500%;
+     }
+  }
+ .Offer{
+   display: flex;
+   justify-content: center;
+   justify-content: space-evenly;
+ }
+ .Offer-a{
+   padding: 10px; 
+ }
+ .Offer-b{
+   display: flex;
+   background-color: #12345b;
+   border-radius: 20px;
+   padding: 20px;
+   margin-top: 20px;
+   margin-bottom: 40px;
+   
+ }
+ .Offer-b img{
+   height: 50px;
+   
+ }
+ .Offer-b a{
+   font-size: 20px;
+   padding: 10px;
+   margin-top: 10px;
+  
+ }
+
+ #Ict h2{
+   margin-left: 20px;
+   font-size: xx-large;
+   color: #2d3130;
+   padding: 10px;
+   text-align: center;
+}
+#footer{
+   display: flex;
+   background-color:#12345b;
+   padding: 40px;
+   /* justify-content: space-around; */
+}
+ .contact-us{
+    margin-right: 20%;
+    
+}
+.contact-1{
+   display: flex;
+   padding-top: 10px;
+   font-size: 20px;
+   color: #dcd8d8;
+}
+ .contact-1 img{
+   height: 25px;
+ }
+ .contact-1 h4{
+   padding: 3px;
+   
+ }
+ .contact-1 p{
+   margin-left:05px;
+   padding: 3px;
+   line-height: 23px;
+ }
+ .icons{
+display: flex;
+margin-left:100px;
+margin-top: 10px;
+ }
+.icons img{
+   height: 25px;
+   margin-left: 10px;
+   
+}
+.userful-links{
+   margin-right: 20%;
+   margin-bottom:25px ;
+   /* padding-bottom: 53px; */
+}
+.userful-links a{
+   padding: 40px;
+   line-height: 2;
+   margin-top:30px ;
+   font-size: 18px;
+}
+.counter-1{
+   display:block;
+   padding: 10px;
+   text-align: center;
+   line-height: 1;
+   
+}
+.counter-2{
+   margin-bottom: 20px;
+}
+span.num{
+   color: white;
+   display: grid;
+   text-align: center;
+   font-weight: 500;
+   font-size:23px;
+}
+span.text{
+   color: #ebe7e7;
+   font-size: 20px;
+}
+.footer-b p{
+   background-color: #034590cb;
+   color:#fff;
+   padding: 10px;
+   text-align: center;
+}
+
