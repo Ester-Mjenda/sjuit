@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SJUIT-OAS</title>
+    <link rel="icon" type="image/x-icon" href="img/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="additional_info-style.css" />
+  </head>
+  <body>
+    <!--body contain: heading section,main section and footer section -->
+    <!-- heading section -->
+    <header id="header">
+      <!-- header consist---heading-1 and heading-2 -->
+      <!-- heading-1 ----logo and title-->
+      <div class="logo">
+        <div class="logo-1">
+          <img src="img/flogo.png" />
+        </div>
+        <div class="logo-2">
+          <h1>ST. JOSEPH UNIVERSITY IN TANZANIA( SJUIT )</h1>
+          <h2>Online Application System <br />(OAS)</h2>
+        </div>
+      </div>
+      <!-- heading-2----navigation links -->
+      <div class="nav-links">
+        <div class="nav-link1">
+          <a href="status.html">Step 1</a>
+          <a href="choices.html">Step 2</a>
+          <a class="active" href="additional_info.html">Step 3</a>
+          <a href="submision.php">Step 4</a>
+          <a
+            href="#"
+            onclick="if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) document.getElementById('deleteForm').submit();"
+            >Log Out</a
+          >
+
+          <form
+            id="deleteForm"
+            action="logout.php"
+            method="POST"
+            style="display: none"
+          >
+            <input
+              type="hidden"
+              name="user_id"
+              value="<?php echo htmlspecialchars($_SESSION['user_id']); ?>"
+            />
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="welcome">
+        <h1>NOTE:</h1>
+        <h2>Fill all required information correctly</h2>
+      </section>
+      <section class="form">
+        <form action="additional_info.php" method="post" autocomplete="off">
+          <input
+            type="hidden"
+            id="user_id"
+            name="user_id"
+            value="<?php echo $_SESSION['user_id']; ?>"
+          />
+          <h2>Additional Informations</h2>
+          <hr />
+          <label for="region">Which region do you come from ?</label><br />
+          <select type="text" id="region" name="region" required>
+            <option value="" selected disabled hidden>Select from here</option>
+            <option value="mbeya">MBEYA</option>
+            <option value="mbeya">TANGA</option>
+            <option value="mbeya">DAR ES SALAAM</option>
+            <option value="mbeya">KIGOMA</option>
+            <option value="mbeya">IRINGA</option>
+            <option value="mbeya">NJOMBE</option>
+            <option value="mbeya">PWANI</option>
+            <option value="mbeya">DODOMA</option>
+            <option value="mbeya">MWANZA</option>
+            <option value="mbeya">ARUSHA</option>
+            <option value="mbeya">SHINYANGA</option>
+            <option value="mbeya">TABORA</option>
+            <option value="mbeya">SIMIYU</option>
+            <option value="mbeya">GEITA</option>
+            <option value="mbeya">MARA</option>
+            <option value="mbeya">MTWARA</option>
+            <option value="mbeya">KAGERA</option>
+            <option value="mbeya">LINDI</option>
+            <option value="mbeya">MOROGORO</option>
+            <option value="mbeya">KILIMANJARO</option>
+            <option value="mbeya">SONGWE</option>
+            <option value="mbeya">SINGIDA</option>
+            <option value="mbeya">RUKWA</option>
+            <option value="mbeya">RUVUMA</option>
+            <option value="mbeya">KATAVI</option>
+            <option value="mbeya">MANYARA</option>
+            <option value="mbeya">PEMBA KASKAZINI</option>
+            <option value="mbeya">PEMBA KUSINI</option>
+            <option value="mbeya">UNGUJA KASKAZINI</option>
+            <option value="mbeya">PEMBA MAGHARIBI</option>
+            <option value="mbeya">UNGUJA KUSINI</option></select
+          ><br />
+          <label for="district">Which district do you come from ?</label><br />
+          <select type="text" id="second" name="district" required>
+            <option value="" selected disabled hidden>Select from here</option>
+            <option value="kyela">MBEYA</option>
+            <option value="kyela">TANGA</option>
+            <option value="kyela">DAR ES SALAAM</option>
+            <option value="kyela">KIGOMA</option>
+            <option value="kyela">IRINGA</option>
+            <option value="kyela">NJOMBE</option>
+            <option value="kyela">PWANI</option>
+            <option value="kyela">DODOMA</option>
+            <option value="kyela">MWANZA</option>
+            <option value="kyela">ARUSHA</option>
+            <option value="kyela">SHINYANGA</option>
+            <option value="kyela">TABORA</option>
+            <option value="kyela">SIMIYU</option>
+            <option value="kyela">GEITA</option>
+            <option value="kyela">MARA</option>
+            <option value="kyela">MTWARA</option>
+            <option value="kyela">KAGERA</option>
+            <option value="kyela">LINDI</option>
+            <option value="kyela">MOROGORO</option>
+            <option value="kyela">KILIMANJARO</option>
+            <option value="kyela">SONGWE</option>
+            <option value="kyela">SINGIDA</option>
+            <option value="kyela">RUKWA</option>
+            <option value="kyela">RUVUMA</option>
+            <option value="kyela">KATAVI</option>
+            <option value="kyela">MANYARA</option>
+            <option value="kyela">PEMBA KASKAZINI</option>
+            <option value="kyela">PEMBA KUSINI</option>
+            <option value="kyela">UNGUJA KASKAZINI</option>
+            <option value="kyela">PEMBA MAGHARIBI</option>
+            <option value="kyela">UNGUJA KUSINI</option></select
+          ><br />
+          <label for="text">Enter your date of birth:</label><br />
+          <input
+            type="date"
+            name="dob"
+            placeholder="pick from calender"
+            required
+          /><br />
+          <label for="text">Enter parent/guardian name :</label><br />
+          <input
+            type="text"
+            name="name"
+            placeholder="Saraphinah Artist Fighter"
+            required
+          /><br />
+          <label for="country_code">Enter parent/guardian phone-No :</label
+          ><br />
+          <input
+            type="country_code"
+            id="country_code"
+            name="countryCode"
+            pattern="^\+\d{3}$"
+            maxlength="4"
+            placeholder="+255"
+            required
+          />
+          <input
+            type="tel"
+            id="phone-no"
+            name="phoneNo"
+            pattern="^\d{9}$"
+            maxlength="9"
+            required
+            placeholder="759000000"
+          /><br />
+          <label for="know">How did you know SJUIT ?</label>
+          <select type="text" id="where" name="location" required>
+            <option value="" selected disabled hidden>Select from here</option>
+            <option value="CSEE">SCHOOL VISIT</option>
+            <option value="CSEE">EXHIBITION</option>
+            <option value="CSEE">CHURCH</option>
+            <option value="CSEE">MOSQUE</option>
+            <option value="CSEE">BY ROAD SIDE</option>
+            <option value="CSEE">FLAYERS / BURNERS</option>
+            <option value="CSEE">TV</option>
+            <option value="CSEE">RADIO</option>
+            <option value="CSEE">FAMILY</option>
+            <option value="CSEE">SJUIT-STUDENTS</option>
+            <option value="CSEE">SJUIT-STAFF</option>
+            <option value="CSEE">ALUMNI</option>
+            <option value="CSEE">WEBSITE</option>
+            <option value="CSEE">SOCIAL MEDIA</option></select
+          ><br />
+          <button type="submite">Save your details</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- footer section -->
+    <footer>
+      <p>© 2024 All Rights Reserved, SJUIT</p>
+    </footer>
+
+    <!-- javasript -->
+  </body>
+</html>
+`

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SJUIT-OAS</title>
+    <link rel="icon" type="image/x-icon" href="img/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="choices-style.css" />
+  </head>
+  <body>
+    <!-- body contain--heading section,main section and footer section -->
+    <!-- heading section -->
+    <header id="header">
+      <!-- header consist--heading-1 and heading-2 -->
+      <!-- heading-1 -->
+      <div class="logo">
+        <div class="logo-1">
+          <img src="img/flogo.png" />
+        </div>
+        <div class="logo-2">
+          <h1>ST. JOSEPH UNIVERSITY IN TANZANIA( SJUIT )</h1>
+          <h2>Online Application System <br />(OAS)</h2>
+        </div>
+      </div>
+      <!-- heading-2  -->
+      <div class="nav-links">
+        <div class="nav-link1">
+          <a href="status.html">Step 1</a>
+          <a class="active" href="choices.html">Step 2</a>
+          <a href="additional_info.html">Step 3</a>
+          <a href="submision.php">Step 4</a>
+          <a
+            href="#"
+            onclick="if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) document.getElementById('deleteForm').submit();"
+            >Log Out</a
+          >
+
+          <form
+            id="deleteForm"
+            action="logout.php"
+            method="POST"
+            style="display: none"
+          >
+            <input
+              type="hidden"
+              name="user_id"
+              value="<?php echo htmlspecialchars($_SESSION['user_id']); ?>"
+            />
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <!-- main section -->
+    <main id="main">
+      <section class="welcome">
+        <h1>NOTE:</h1>
+        <h2>Fill all required information correctly</h2>
+      </section>
+      <section class="form">
+        <form action="choices.php" method="post" autocomplete="off">
+          <input
+            type="hidden"
+            id="user_id"
+            name="user_id"
+            value="<?php echo $_SESSION['user_id']; ?>"
+          />
+          <h2>Programme Choices</h2>
+          <hr />
+          <label for="1">First Choice :</label><br />
+          <select type="text" id="st1" name="st1" required>
+            <option value="" selected disabled hidden>Select from here</option>
+            <option value="BSC.CS">BSC.CS</option>
+            <option value="BSC.CSE">BSC.CSE</option>
+            <option value="CIVIL">CIVIL</option>
+            <option value="EEE">EEE</option>
+            <option value="ECE">ECE</option>
+            <option value="EDUCATION">EDUCATION</option>
+            <option value="MD">MD</option>
+            <option value="PHARMACY">PHARMACY</option>
+          </select>
+          <br />
+          <label for="2">Second Choice :</label><br />
+          <select type="text" id="nd2" name="nd2" required>
+            <option value="" selected disabled hidden>Select from here</option>
+            <option value="BSC.CS">BSC.CS</option>
+            <option value="BSC.CSE">BSC.CSE</option>
+            <option value="CIVIL">CIVIL</option>
+            <option value="EEE">EEE</option>
+            <option value="ECE">ECE</option>
+            <option value="EDUCATION">EDUCATION</option>
+            <option value="MD">MD</option>
+            <option value="PHARMACY">PHARMACY</option>
+          </select>
+          <br />
+          <label for="3">Third Choice :</label><br />
+          <select type="text" id="rd3" name="rd3" required>
+            <option value="" selected disabled hidden>Select from here</option>
+            <option value="BSC.CS">BSC.CS</option>
+            <option value="BSC.CSE">BSC.CSE</option>
+            <option value="CIVIL">CIVIL</option>
+            <option value="EEE">EEE</option>
+            <option value="ECE">ECE</option>
+            <option value="EDUCATION">EDUCATION</option>
+            <option value="MD">MD</option>
+            <option value="PHARMACY">PHARMACY</option>
+          </select>
+          <br />
+          <label for="4">Fourth Choice :</label><br />
+          <select type="text" id="th4" name="th4" required>
+            <option value="" selected disabled hidden>Select from here</option>
+            <option value="BSC.CS">BSC.CS</option>
+            <option value="BSC.CSE">BSC.CSE</option>
+            <option value="CIVIL">CIVIL</option>
+            <option value="EEE">EEE</option>
+            <option value="ECE">ECE</option>
+            <option value="EDUCATION">EDUCATION</option>
+            <option value="MD">MD</option>
+            <option value="PHARMACY">PHARMACY</option>
+          </select>
+          <br />
+          <label for="5">Fifth Choice :</label><br />
+          <select type="text" id="th5" name="th5" required>
+            <option value="" selected disabled hidden>Select from here</option>
+            <option value="BSC.CS">BSC.CS</option>
+            <option value="BSC.CSE">BSC.CSE</option>
+            <option value="CIVIL">CIVIL</option>
+            <option value="EEE">EEE</option>
+            <option value="ECE">ECE</option>
+            <option value="EDUCATION">EDUCATION</option>
+            <option value="MD">MD</option>
+            <option value="PHARMACY">PHARMACY</option>
+          </select>
+          <br />
+          <button type="submit">Save your choices</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- footer section -->
+    <footer>
+      <p>© 2024 All Rights Reserved, SJUIT</p>
+    </footer>
+
+    <!-- javascript -->
+  </body>
+</html>

@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    font-optical-sizing: auto;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    background-size: cover;
+  }
+
+                                          /* heading section */
+  #header {
+    position: relative;
+  }
+  /* heading-1----logo and title */
+  .logo {
+    background-color: #11224d;
+    color: #ebe7e7;
+    display: flex;
+    align-content: center;
+    height: 160px;
+  }
+  .logo-1 img {
+    margin-left: 150px;
+    height: 160px;
+  }
+  .logo-2 h1 {
+    margin-left: 20px;
+    font-size: 33px;
+    margin-top: 40px;
+  }
+  .logo-2 h2 {
+    text-align: center;
+    font-size: 30px;
+  }
+ /* heading-2---navigation links */
+ .nav-link1{
+  background-color: #013a69fa;
+  line-height:1px;
+  display:flex;
+  justify-content: space-around;
+}
+.nav-link1 a{
+  padding:10px 100.7px 27px ;
+  padding-top: 27px;
+  font-size: 19px;
+  color: #fff;
+}
+.nav-link1 a:hover{
+  background-color:#11224D;
+  transition: .4s;
+}
+.nav-link1 a.active{
+  border-bottom: 3px solid orange;
+}
+a.logout{
+  color:cyan;
+}
+
+                                            /* main section */
+  #main {
+   background-image: radial-gradient(cyan,#4aa3ecfa);
+   padding-bottom: 13px;
+   padding-top:6px;
+  }
+  .form{
+    padding: 30px;
+    background-color:#4aa3ecfa;
+    border-radius: 30px;
+    font-size: 15px;
+    color: #fff; 
+    width: 37%;
+    margin-left: 32%;
+    margin-top:25px;
+    margin-bottom:15px;
+    padding-bottom: 50px;
+    line-height: 1.5;
+  }
+  form h2{
+    text-align: center;
+    padding-bottom: 5px;
+  }
+  h3,h4{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 100;
+  }
+  form h3{
+    width: 90%;
+    margin-left: 20px;
+    margin-bottom: 25px;
+    border-bottom: solid 3px azure;
+  }
+  form p{
+    margin-left: 80px;
+  }
+  button {
+    margin-left: 20px;
+    width: 90%;
+    border-radius: 30px;
+    padding: 7px 90px;
+    border: 3px solid #013a69fa;
+    margin-top: 25px;
+    font-size: 17px;
+    font-family: Times New Roman;
+    font-weight: bold;
+    background-color: #4aa3ecfa;
+    color: #fff;
+    cursor: pointer;
+  }
+  button:hover{
+    background-color:#013a69fa;
+    transition: .4s; 
+  }
+
+                                              /* footer section */
+  footer {
+    background-color: #11224d;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }

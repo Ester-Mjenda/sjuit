@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  
+  body {
+    font-family: Georgia, 'Times New Roman', Times, serif ;
+    font-optical-sizing: auto;
+    font-size: 1rem; /* Use rem instead of px for better scaling */
+    font-weight: 500;
+    font-style: normal;
+    background-size: cover;
+    position: relative;
+  }
+
+                                    /* heading section */
+  /* heading-1----title and logo*/
+  .title {
+    background-color: #11224d;
+    color: #ebe7e7;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  .title img {
+    height: auto;
+    max-width: 10vw;
+    margin-left: 11vw;
+  }
+  .title-2 h1 {
+    padding-top: 4%;
+    font-size: 1.875rem;
+  }
+  .title-2 h2 {
+    text-align: center;
+    padding-top: 7px;
+    font-size: 1.5rem;
+  }
+  /*heading-2---navigation links  */
+  .nav-links{
+    display: flex;
+    background:#013a69fa;
+    flex-wrap: wrap;
+    height: 9vh;
+    }
+    .nav-links1 {
+      background-color: #2068a2fa;
+      height: 4.5vw;
+    }
+    .nav-links1 img{
+      height: auto;
+      padding: 9px;
+      max-width: 5vw;
+    }
+    .nav-link2{
+    margin-left:29vw;
+    padding: 1.2rem;
+    }
+    .nav-link2 a{
+      padding:1px 162.5px 11px;
+      font-size: 1.25rem;
+      color: #fff;
+    }
+    .nav-link2 a.active{
+      border-bottom: 3px solid orange;
+    }
+
+                                              /* main section */
+  #main {
+    background-image: radial-gradient(cyan,#4aa3ecfa);
+  }
+  /* Center the success message */
+  .success-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:azure;
+    height: calc(100vh - 150px); /* Adjusting for navbar height */
+}
+.success-message h2 {
+    color:azure;
+    padding: 10px;
+    background-color: #11224d;
+    font-size: 24px;
+}
+.success-message a{
+  color: aquamarine;
+  background-color:#013a69fa;
+}
+  .form{
+    width: 46%;
+    padding:10px;
+    margin-left: 29%;
+
+  }
+  .form-1 h1{
+    margin-left: 25%;
+    font-size: 25px;
+  }
+  .form-1 h2{
+    width:87%;
+    border-bottom: solid 3px azure;
+    margin-left: 5%;
+    margin-bottom: 15px;
+  }
+  .error-message{
+    color:red;
+    background:azure;
+    text-align: center;
+  }
+  .form-1{
+    padding: 20px;
+    line-height: 1.5;
+    background-color:#4aa3ecfa;
+    border-radius: 30px;
+    color: #fff;  
+  }
+  .levels {
+    margin-left:4.5rem ;
+    font-size: 1.13rem;
+  }
+  label {
+    margin-left: 4.4rem;
+    line-height: 1.5;
+    font-size: 1.13rem;
+  }
+  .radio{
+    display: flex;
+    margin-bottom: 6px;
+    font-size: 0.91rem;
+  }
+  input[type="radio"]{
+    margin-left: 4.4vw;
+  }
+  select{
+    margin-left: 55px;
+    width: 80%;
+    border-radius: 30px;
+    padding: 7px;
+    border: 3px solid #dcb;
+    font-size: 14px;
+    color: #5e5a5a;
+    padding-left: 20px;
+  }
+  input[type="text"] {
+    margin-left: 55px;
+    width: 80%;
+    border-radius: 30px;
+    padding: 7px;
+    border: 3px solid #dcb;
+    font-size: 14px;
+    color: #5e5a5a;
+    padding-left: 20px;
+  }
+  input[type="email"] {
+    margin-left: 55px;
+    width: 80%;
+    border-radius: 30px;
+    padding: 7px;
+    border: 3px solid #dcb;
+    font-size: 14px;
+    color: #5e5a5a;
+    padding-left: 20px;
+  }
+  input[type=country_code]{
+    margin-left: 55px;
+    border-radius: 30px 0px 0px 30px;
+    padding: 7px;
+    border: 3px solid #dcb;
+    width: 13%;
+  }
+  input[type="tel"] {
+    width: 66%;
+    border-radius: 0px 30px 30px 0px;
+    padding: 7px;
+    border: 3px solid #dcb;
+    color: #5e5a5a;
+    padding-left: 10px;
+  }input[type="password"] {
+    margin-left: 40px;
+    width: 80%;
+    border-radius: 30px;
+    padding: 7px;
+    border: 3px solid #dcb;
+    padding-left: 20px;
+  }
+  input[type="submit"] {
+    margin-left: 55px;
+    width: 80%;
+    border-radius: 30px;
+    padding: 7px;
+    border: 3px solid #013a69fa;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-size: 17px;
+    font-family: Times New Roman;
+    font-weight: bold;
+    background-color: #4aa3ecfa;
+    color: #fff;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover{
+    background-color:#013a69fa;
+    transition: .4s; 
+  }
+  .login{
+    margin-top: 10px;
+  }
+  .login p{
+    width: 90%;
+    margin-left: 20px;
+    margin-top: 25px;
+    border-bottom: solid 3px azure;
+  }
+  .login h3{
+    margin-top: 10px;
+    margin-left:22% ;
+    margin-bottom: .8rem;
+    font-size: 1rem;
+  }
+  .login a{
+    padding-left: 3.3rem;
+    border-radius: 30px;
+    padding: .55vw 14.1vw;
+    border: 3px solid #013a69fa;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #4aa3ecfa;
+    color: #fff;
+  }
+  .login a:hover{
+    background-color:#013a69fa;
+    transition: .4s; 
+  }
+
+                                        /* footer section */
+  footer {
+    background-color: #11224d;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+   /* Media Queries include larger tablets, smaller laptops, and some desktop monitors.*/
+@media (max-width: 1000px){
+  .title {
+    flex-direction: column;
+    align-items: center;
+}.title img{
+  max-width:13vw;
+    margin-left: 0vw;
+} 
+.title-2 h1{
+  text-align: center;
+}
+.nav-links{
+  height: 9vh;
+  }
+.nav-links1{
+  max-width: 9vw;
+}
+.nav-links1 img{
+  height: auto;
+  padding: 9px;
+  max-width: 6vw;
+}
+.nav-link2 {
+  margin-left:19vw;
+}
+.nav-link2 a{
+  padding:1px 162.5px 9px;
+}
+.form{
+  width: 52%;
+  padding:10px;
+  margin-left: 22%;
+}
+input[type="radio"]{
+  margin-left: 4vw;
+}
+.login a{
+  padding: .67vw 14.8vw;
+}
+}
+@media (max-width: 800px){
+  
+}

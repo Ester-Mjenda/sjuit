@@ -1,0 +1,113 @@
+To link a registration form to a login form in PHP, you’ll need to follow these steps:
+
+Create a Database: First, set up a MySQL database to store user information. You can use phpMyAdmin or any other database management tool.
+Create a Registration Form: This form will collect user details like username, email, and password. Here’s a simple example:
+HTML
+
+<form action="register.php" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Register</button>
+</form>
+AI-generated code. Review and use carefully. More info on FAQ.
+Handle Registration Data: In register.php, process the form data and store it in the database.
+PHP
+
+<?php
+// Database connection
+$conn = new mysqli('localhost', 'username', 'password', 'database');
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+
+    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Registration successful!";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+}
+?>
+AI-generated code. Review and use carefully. More info on FAQ.
+Create a Login Form: This form will allow users to log in using their credentials.
+HTML
+
+<form action="login.php" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Login</button>
+</form>
+AI-generated code. Review and use carefully. More info on FAQ.
+Handle Login Data: In login.php, verify the user credentials.
+PHP
+
+<?php
+// Database connection
+$conn = new mysqli('localhost', 'username', 'password', 'database');
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM users WHERE username='$username'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            echo "Login successful!";
+            // Start session and redirect to a protected page
+            session_start();
+            $_SESSION['username'] = $username;
+            header("Location: welcome.php");
+        } else {
+            echo "Invalid password.";
+        }
+    } else {
+        echo "No user found with that username.";
+    }
+
+    $conn->close();
+}
+?>
+AI-generated code. Review and use carefully. More info on FAQ.
+Create a Welcome Page: This page will be accessible only after a successful login.
+PHP
+
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+<h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
+<a href="logout.php">Logout</a>
+AI-generated code. Review and use carefully. More info on FAQ.
+Logout Script: To log out, destroy the session.
+PHP
+
+<?php
+session_start();
+session_destroy();
+header("Location: login.php");
+?>

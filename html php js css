@@ -1,0 +1,248 @@
+To create a system where users can register, log in, fill out an application form, and then view their dashboard, you can follow these steps using PHP and MySQL. Here’s a simplified guide:
+
+Step 1: Set Up Your Database
+Create a database and tables for users and applications.
+
+SQL
+
+CREATE DATABASE UserSystem;
+
+USE UserSystem;
+
+CREATE TABLE users (
+id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50) NOT NULL UNIQUE,
+email VARCHAR(100) NOT NULL UNIQUE,
+password VARCHAR(255) NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE applications (
+id INT AUTO_INCREMENT PRIMARY KEY,
+user_id INT,
+application_data TEXT,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (user_id) REFERENCES users(id)
+);
+AI-generated code. Review and use carefully. More info on FAQ.
+Step 2: Create Registration and Login Forms
+Create HTML forms for user registration and login.
+
+Registration Form (register.php)
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+
+<body>
+    <form action="register.php" method="post">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Register</button>
+    </form>
+</body>
+
+</html>
+AI-generated code. Review and use carefully. More info on FAQ.
+Login Form (login.php)
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+
+<body>
+    <form action="login.php" method="post">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+</body>
+
+</html>
+AI-generated code. Review and use carefully. More info on FAQ.
+Step 3: Handle Registration and Login with PHP
+Write PHP scripts to handle form submissions and user authentication.
+
+Registration Script (register.php)
+PHP
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+    $conn = new mysqli("localhost", "root", "", "UserSystem");
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Registration successful!";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+}
+?>
+AI-generated code. Review and use carefully. More info on FAQ.
+Login Script (login.php)
+PHP
+
+<?php
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $conn = new mysqli("localhost", "root", "", "UserSystem");
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT * FROM users WHERE username='$username'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['username'] = $username;
+            header("Location: application.php");
+        } else {
+            echo "Invalid password.";
+        }
+    } else {
+        echo "No user found.";
+    }
+
+    $conn->close();
+}
+?>
+AI-generated code. Review and use carefully. More info on FAQ.
+Step 4: Create Application Form and Dashboard
+Create an application form and a dashboard page.
+
+Application Form (application.php)
+PHP
+
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Application Form</title>
+</head>
+
+<body>
+    <form action="application.php" method="post">
+        <textarea name="application_data" placeholder="Enter your application details" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $application_data = $_POST['application_data'];
+    $username = $_SESSION['username'];
+
+    $conn = new mysqli("localhost", "root", "", "UserSystem");
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT id FROM users WHERE username='$username'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $user_id = $row['id'];
+
+    $sql = "INSERT INTO applications (user_id, application_data) VALUES ('$user_id', '$application_data')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Application submitted!";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+}
+?>
+AI-generated code. Review and use carefully. More info on FAQ.
+Dashboard (dashboard.php)
+PHP
+
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$username = $_SESSION['username'];
+
+$conn = new mysqli("localhost", "root", "", "UserSystem");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM applications WHERE user_id=(SELECT id FROM users WHERE username='$username')";
+$result = $conn->query($sql);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <h1>Welcome, <?php echo $username; ?></h1>
+    <h2>Your Applications</h2>
+    <ul>
+        <?php
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<li>" . $row['application_data'] . "</li>";
+            }
+        } else {
+            echo "<li>No applications found.</li>";
+        }
+        ?>
+    </ul>
+</body>
+
+</html>
+
+<?php
+$conn->close();
+?>

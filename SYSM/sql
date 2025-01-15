@@ -1,0 +1,16 @@
+SELECT users.user_id, users.name, users.dob, location.region, location.district, 
+       contact.countryCode, contact.phoneNo, other_info.know
+FROM users
+LEFT JOIN location ON users.user_id = location.user_id
+LEFT JOIN contact ON users.user_id = contact.user_id
+LEFT JOIN other_info ON users.user_id = other_info.user_id
+WHERE users.user_id = 1;
+
+
+
+CREATE TABLE status_db (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    status VARCHAR(50),
+    FOREIGN KEY (user_id) REFERENCES register(user_id) ON DELETE CASCADE ON UPDATE CASCADE
+);

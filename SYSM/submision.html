@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SJUIT-OAS</title>
+    <link rel="icon" type="image/x-icon" href="Img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="submision-style.css" />
+  </head>
+  <body>
+    <!--body contain: heading section,main section and footer section -->
+    <!-- heading section -->
+    <header id="header">
+      <!-- header consist---heading-1 and heading-2 -->
+      <!-- heading-1 ----logo and title-->
+      <section class="logo">
+        <div class="logo-1">
+          <img src="img/flogo.png" />
+        </div>
+        <div class="logo-2">
+          <h1>ST. JOSEPH UNIVERSITY IN TANZANIA( SJUIT )</h1>
+          <h2>
+            Online Application System<br />
+            (OAS)
+          </h2>
+        </div>
+      </section>
+      <!-- heading-2-----navigation links -->
+      <section class="nav-links">
+        <div class="nav-link1">
+          <a href="status.html">Step 1</a>
+          <a href="choices.html">Step 2</a>
+          <a href="additional_info.html">Step 3</a>
+          <a class="active" href="submision.html">Step 4</a>
+          <a class="logout" href="logout.php">Log Out</a>
+        </div>
+      </section>
+    </header>
+
+    <!-- main section -->
+    <main id="main">
+      <section class="form">
+        <form action="submit.php" method="post">
+          <h2>Submission</h2>
+          <h3></h3>
+          <h4><strong>Verify your information before submission:</strong></h4>
+          <p id="status"></p>
+          <p id="choices"></p>
+          <button type="button" onclick="prevStep()">Previous</button>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- footer section -->
+    <footer>
+      <p>© Copyright SJUIT. All Rights Reserved</p>
+    </footer>
+
+    <!-- javascript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const currentStep = localStorage.getItem("currentStep");
+        if (currentStep && currentStep !== "submision") {
+          window.location.href = `${currentStep}.html`;
+        }
+
+        const indexNo = localStorage.getItem("indexNo");
+        const first = localStorage.getItem("first");
+        const second = localStorage.getItem("second");
+        const third = localStorage.getItem("third");
+        const fourth = localStorage.getItem("fourth");
+        const fifth = localStorage.getItem("fifth");
+
+        document.getElementById("status").innerText =
+          "Form Four Index Number: " + (indexNo ? indexNo : "Not provided");
+
+        document.getElementById("choices").innerHTML = `
+          <strong>Programme Choices:</strong>
+          <ul>
+            <li>First Choice: ${first}</li>
+            <li>Second Choice: ${second}</li>
+            <li>Third Choice: ${third}</li>
+            <li>Fourth Choice: ${fourth}</li>
+            <li>Fifth Choice: ${fifth}</li>
+          </ul>
+        `;
+      });
+
+      function prevStep() {
+        saveCurrentStep(3);
+        window.location.href = "additional_info.html";
+      }
+
+      function saveCurrentStep(step) {
+        localStorage.setItem("currentStep", step);
+      }
+    </script>
+  </body>
+</html>

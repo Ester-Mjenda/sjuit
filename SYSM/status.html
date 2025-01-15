@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SJUIT-OAS</title>
+    <link rel="icon" type="image/x-icon" href="img/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="status-style.css" />
+  </head>
+  <body>
+    <!-- body contain--heading section,main section and footer section -->
+    <!-- heading section -->
+    <header>
+      <!-- header consist--heading-1 and heading-2 -->
+      <!-- heading-1 l---logo and title-->
+      <div class="logo">
+        <div class="logo-1">
+          <img src="img/flogo.png" />
+        </div>
+        <div class="logo-2">
+          <h1>ST. JOSEPH UNIVERSITY IN TANZANIA ( SJUIT )</h1>
+          <h2>Online Application System <br />(OAS)</h2>
+        </div>
+      </div>
+      <!-- heading-2 ----navigation links -->
+      <div class="nav-links">
+        <div class="nav-link1">
+          <a class="active" href="status.html">Step 1</a>
+          <a href="choices.html">Step 2</a>
+          <a href="additional_info.html">Step 3</a>
+          <a href="submision.php">Step 4</a>
+          <a
+            href="#"
+            onclick="if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) document.getElementById('deleteForm').submit();"
+            >Log Out</a
+          >
+
+          <form
+            id="deleteForm"
+            action="logout.php"
+            method="POST"
+            style="display: none"
+          >
+            <input
+              type="hidden"
+              name="user_id"
+              value="<?php echo htmlspecialchars($_SESSION['user_id']); ?>"
+            />
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <!-- main section -->
+    <main id="main">
+      <section class="welcome">
+        <h1>NOTE:</h1>
+        <h2>Fill all required information correctly</h2>
+      </section>
+      <section class="form">
+        <form
+          action="status.php"
+          method="post"
+          id="statusform"
+          autocomplete="off"
+        >
+          <input
+            type="hidden"
+            id="user_id"
+            name="user_id"
+            value="<?php echo htmlspecialchars($_SESSION['user_id']); ?>"
+          />
+          <h2>Form Four Details</h2>
+          <hr />
+          <label for="status">How many form four seats do you have?</label
+          ><br />
+          <input
+            type="number"
+            id="f4s"
+            name="f4s"
+            required
+            min="1"
+            max="5"
+            placeholder="select here"
+            onchange="generateIndexFields()"
+          /><br />
+
+          <div id="indexFields"></div>
+
+          <button type="submit">Proceed</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- footer section -->
+    <footer>
+      <p>© 2024 All Rights Reserved, SJUIT</p>
+    </footer>
+
+    <!-- javasript -->
+    <script>
+      function generateIndexFields() {
+        const numberOfSeats = document.getElementById("f4s").value;
+        const indexFieldsContainer = document.getElementById("indexFields");
+        indexFieldsContainer.innerHTML = ""; // Clear existing fields
+
+        for (let i = 1; i <= numberOfSeats; i++) {
+          const label = document.createElement("label");
+          label.setAttribute("for", "indexNo" + i);
+          label.innerText = `Enter form four index number ${i}:`;
+
+          const input = document.createElement("input");
+          input.type = "text";
+          input.id = "indexNo" + i;
+          input.name = "indexNo" + i;
+          input.required = true;
+          input.placeholder = `SXXXX/YYYY/${new Date().getFullYear()}`;
+
+          indexFieldsContainer.appendChild(label);
+          indexFieldsContainer.appendChild(document.createElement("br"));
+          indexFieldsContainer.appendChild(input);
+          indexFieldsContainer.appendChild(document.createElement("br"));
+        }
+      }
+    </script>
+  </body>
+</html>
